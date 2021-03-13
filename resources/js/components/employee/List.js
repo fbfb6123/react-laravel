@@ -1,6 +1,25 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import employeeServices from "../../services/Employee"
+
+import { Link } from "react-router-dom";
 
 function List(){
+
+  const [ listEmployee, setListEmployee ] = useState([]);
+
+  useEffect(()=>{
+
+    async function fetchDataEmployee(){
+      const res = await employeeServices.listEmployee();
+      console.log(res.data);
+      setListEmployee(res.data)
+    }
+
+    fetchDataEmployee();
+
+  },[])
+
   return (
     <section>
       <table class="table">
@@ -15,39 +34,25 @@ function List(){
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>California Cll 100</td>
-            <td>3101111111</td>
-            <td>
-              <a href="#" class="btn btn-light"> Edit </a>
-              <a href="#" class="btn btn-danger"> Delete </a>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>California Cll 100</td>
-            <td>3101111111</td>
-            <td>
-              <a href="#" class="btn btn-light"> Edit </a>
-              <a href="#" class="btn btn-danger"> Delete </a>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>California Cll 100</td>
-            <td>3101111111</td>
-            <td>
-              <a href="#" class="btn btn-light"> Edit </a>
-              <a href="#" class="btn btn-danger"> Delete </a>
-            </td>
-          </tr>
+
+        {
+          listEmployee.map((item)=>{
+            return(
+              <tr>
+                <th scope="row">{item.id}</th>
+                <td>{item.name_lastname}</td>
+                <td>{item.email}</td>
+                <td>{item.direction}</td>
+                <td>{item.phone}</td>
+                <td>
+                  <Link class="btn btn-outline-info" to={"/employee/edit/"+item.id}>Edit</Link>
+                  <a href="#" class="btn btn-danger"> Delete </a>
+                </td>
+              </tr>
+            )
+          })
+        }
+        
         </tbody>
       </table>
     </section>
