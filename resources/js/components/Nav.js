@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-export default class Nav extends Component {
-  render() {
+function Nav(){
+  console.log('test')
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light rounded">
         <div className="collapse navbar-collapse" id="navbarsExample09">
@@ -19,5 +19,6 @@ export default class Nav extends Component {
         </div>
       </nav>
     )
-  }
 }
+
+export default Nav;

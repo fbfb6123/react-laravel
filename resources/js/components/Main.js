@@ -16,7 +16,7 @@ function Main(){
   return (
     <Router>
       <main>
-        <Nav/>
+        <Nav />
         <Switch>
           <Route path="/employee/index" exact component={List} />
           <Route path="/employee/form"  component={Form} />
