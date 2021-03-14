@@ -51,4 +51,27 @@ class EmployeeController extends Controller
         return $response;
   
       }
+
+      public function get($id){
+
+        try {
+  
+          $data = Employee::with("role")->find($id);
+  
+          if ($data) {
+            $response['data'] = $data;
+            $response['message'] = "Load successful";
+            $response['success'] = true;
+          }
+          else {
+            $response['message'] = "Not found data id => $id";
+            $response['success'] = false;
+          }
+  
+        } catch (\Exception $e) {
+          $response['message'] = $e->getMessage();
+          $response['success'] = false;
+        }
+        return $response;
+      }
 }
