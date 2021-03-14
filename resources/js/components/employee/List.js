@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import employeeServices from "../../services/Employee"
+import employeeServices from "../services/Employee"
 
 import { Link } from "react-router-dom";
 
@@ -22,8 +22,8 @@ function List(){
 
   return (
     <section>
-      <table class="table">
-        <thead class="thead-dark">
+      <table className="table">
+        <thead className="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -45,8 +45,8 @@ function List(){
                 <td>{item.direction}</td>
                 <td>{item.phone}</td>
                 <td>
-                  <Link class="btn btn-outline-info" to={"/employee/edit/"+item.id}>Edit</Link>
-                  <a href="#" class="btn btn-danger"> Delete </a>
+                  <Link className="btn btn-outline-info" to={"/employee/edit/"+item.id}>Edit</Link>
+                  <a href="#" className="btn btn-danger"> Delete </a>
                 </td>
               </tr>
             )

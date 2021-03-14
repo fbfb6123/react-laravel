@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import employeeServices from "../../services/Employee"
+import employeeServices from "../services/Employee"
 
 function Edit(props){
 
@@ -69,26 +69,26 @@ function Edit(props){
     <div>
       <h4>Edit </h4>
       <hr/>
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="firstName">Name</label>
-          <input type="text" class="form-control" value={name}
+          <input type="text" className="form-control" value={name}
           onChange={(event)=>setName(event.target.value)} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="email">Email</label>
-          <input type="email" class="form-control" placeholder="you@example.com"
+          <input type="email" className="form-control" placeholder="you@example.com"
           value={email} onChange={(event)=>setEmail(event.target.value)}/>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="phone">City {city}</label>
-          <select id="inputState" class="form-control" value={city}
+          <select id="inputState" className="form-control" value={city}
           onChange={(event)=>setCity(event.target.value)} >
              <option selected>Choose...</option>
              <option value="New York">New York</option>
@@ -98,26 +98,26 @@ function Edit(props){
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="address">Address</label>
-          <input type="text" class="form-control" placeholder="1234 Main St"
+          <input type="text" className="form-control" placeholder="1234 Main St"
           value={address} onChange={(event)=>setAddress(event.target.value)}/>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="address">Phone </label>
-          <input type="text" class="form-control" placeholder="123467890"  value={phone}
+          <input type="text" className="form-control" placeholder="123467890"  value={phone}
           onChange={(event)=>setPhone(event.target.value)}/>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <label for="phone">Rol</label>
-          <select id="inputState" class="form-control" value={rol}
+          <select id="inputState" className="form-control" value={rol}
           onChange={(event)=>setRol(event.target.value)}>
              {
                listRol.map((itemselect)=>{
@@ -130,10 +130,10 @@ function Edit(props){
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div className="row">
+        <div className="col-md-6 mb-3">
           <button onClick={()=>updateEmployee()}
-          class="btn btn-primary btn-block" type="submit">Save</button>
+          className="btn btn-primary btn-block" type="submit">Save</button>
         </div>
       </div>
     </div>
