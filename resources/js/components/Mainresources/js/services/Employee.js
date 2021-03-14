@@ -36,5 +36,12 @@ employee.get = async (id) => {
 
 }
 
+employee.update = async (data) => {
+  const urlUpdate = baseUrl+"/update/"+data.id
+  const res = await axios.put(urlUpdate,data)
+  .then(response=>{ return response.data; })
+  .catch(error =>{ return error; })
+  return res;
+}
 
 export default employee
