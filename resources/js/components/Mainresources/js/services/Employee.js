@@ -18,4 +18,13 @@ employee.save = async (data) => {
   return res;
 }
 
+employee.listEmployee = async () => {
+  const urlList = baseUrl+"/list"
+  const res = await axios.get(urlList)
+  .then(response=>{ return response.data; })
+  .catch(error=>{ return error; })
+  return res;
+}
+
+
 export default employee
