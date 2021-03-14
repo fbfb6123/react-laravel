@@ -38,7 +38,7 @@ function List(){
         {
           listEmployee.map((item)=>{
             return(
-              <tr>
+              <tr key={item.id}>
                 <th scope="row">{item.id}</th>
                 <td>{item.name_lastname}</td>
                 <td>{item.email}</td>

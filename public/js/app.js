@@ -2978,7 +2978,7 @@ function List() {
                 children: " Delete "
               })]
             })]
-          });
+          }, item.id);
         })
       })]
     })
