@@ -23,3 +23,5 @@ Route::get('/employee/role', 'App\Http\Controllers\API\EmployeeController@list_r
 Route::post('/employee/create', 'App\Http\Controllers\API\EmployeeController@create');
 
 Route::get('/employee/list', 'App\Http\Controllers\API\EmployeeController@list');
+
+Route::get('/employee/get/{id}', 'App\Http\Controllers\API\EmployeeController@get');
