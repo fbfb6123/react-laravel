@@ -71,7 +71,7 @@ function Edit(props){
       <hr/>
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="firstName">Name</label>
+          <label htmlFor="firstName">Name</label>
           <input type="text" className="form-control" value={name}
           onChange={(event)=>setName(event.target.value)} />
         </div>
@@ -79,7 +79,7 @@ function Edit(props){
 
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input type="email" className="form-control" placeholder="you@example.com"
           value={email} onChange={(event)=>setEmail(event.target.value)}/>
         </div>
@@ -87,7 +87,7 @@ function Edit(props){
 
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="phone">City {city}</label>
+          <label htmlFor="phone">City {city}</label>
           <select id="inputState" className="form-control" value={city}
           onChange={(event)=>setCity(event.target.value)} >
              <option selected>Choose...</option>
@@ -100,7 +100,7 @@ function Edit(props){
 
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="address">Address</label>
+          <label htmlFor="address">Address</label>
           <input type="text" className="form-control" placeholder="1234 Main St"
           value={address} onChange={(event)=>setAddress(event.target.value)}/>
         </div>
@@ -108,7 +108,7 @@ function Edit(props){
 
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="address">Phone </label>
+          <label htmlFor="address">Phone </label>
           <input type="text" className="form-control" placeholder="123467890"  value={phone}
           onChange={(event)=>setPhone(event.target.value)}/>
         </div>
@@ -116,13 +116,13 @@ function Edit(props){
 
       <div className="row">
         <div className="col-md-6 mb-3">
-          <label for="phone">Rol</label>
+          <label htmlFor="phone">Rol</label>
           <select id="inputState" className="form-control" value={rol}
           onChange={(event)=>setRol(event.target.value)}>
              {
                listRol.map((itemselect)=>{
                  return(
-                   <option value={itemselect.rol_id}>{itemselect.rol_name}</option>
+                   <option key={item.rol_id} value={itemselect.rol_id}>{itemselect.rol_name}</option>
                  )
                })
              }

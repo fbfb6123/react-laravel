@@ -58,4 +58,51 @@ class EmployeeController extends Controller
       return $response;
     }
 
+    public function get($id){
+
+      try {
+
+        $data = Employee::with("role")->find($id);
+
+        if ($data) {
+          $response['data'] = $data;
+          $response['message'] = "Load successful";
+          $response['success'] = true;
+        }
+        else {
+          $response['message'] = "Not found data id => $id";
+          $response['success'] = false;
+        }
+
+      } catch (\Exception $e) {
+        $response['message'] = $e->getMessage();
+        $response['success'] = false;
+      }
+      return $response;
+    }
+
+    public function update(Request $request,$id){
+
+      try {
+
+        $data['name_lastname'] = $request['name'];
+        $data['email'] = $request['email'];
+        $data['city'] = $request['city'];
+        $data['direction'] = $request['address'];
+        $data['phone'] = $request['phone'];
+        $data['rol'] = $request['rol'];
+
+        Employee::where("id",$id)->update($data);
+
+        $response['message'] = "Updated successful";
+        $response['success'] = true;
+
+      } catch (\Exception $e) {
+        $response['message'] = $e->getMessage();
+        $response['success'] = false;
+      }
+      return $response;
+
+    }
+
 }
