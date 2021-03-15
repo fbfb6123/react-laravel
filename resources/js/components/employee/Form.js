@@ -101,7 +101,7 @@ function Form(){
       <div className="row">
         <div className="col-md-6 mb-3">
           <button className="btn btn-primary btn-block" type="submit"
-          onClick={()=>saveEmployee()}>Save 2</button>
+          onClick={()=>saveEmployee()}>Save</button>
         </div>
       </div>
     </div>

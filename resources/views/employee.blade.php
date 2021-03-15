@@ -9,7 +9,7 @@
 <body>
 <div class="container" style="padding:20px;">
 	<h1 style="text-align:center;">
-		<a href="/employee"> Full Stack - Laravel 8 & React Hooks </a>
+		<a href="/employee"> Laravel8 ReactHooks & MySQL </a>
 	</h1>
 	<hr>
 

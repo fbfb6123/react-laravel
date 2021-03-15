@@ -2799,7 +2799,7 @@ function Form() {
           onClick: function onClick() {
             return saveEmployee();
           },
-          children: "Save 2"
+          children: "Save"
         })
       })
     })]
