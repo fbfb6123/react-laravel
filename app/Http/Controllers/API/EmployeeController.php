@@ -105,4 +105,19 @@ class EmployeeController extends Controller
 
     }
 
+    public function delete($id){
+
+      try {
+        $res = Employee::where("id",$id)->delete();
+        $response['res'] = $res;
+        $response['message'] = "Deleted successful";
+        $response['success'] = true; 
+      } catch (\Exception $e) {
+        $response['message'] = $e->getMessage();
+        $response['success'] = false;
+      }
+
+      return $response;
+    }
+
 }
