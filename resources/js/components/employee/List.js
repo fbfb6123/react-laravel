@@ -18,7 +18,26 @@ function List(){
 
     fetchDataEmployee();
 
-  },[])
+  },[]);
+
+  const onClickDelete = async (i,id) => {
+
+    var yes = confirm("are you sure to delete this item?");
+    if (yes === true){
+
+      const res = await employeeServices.delete(id)
+
+      if (res.success) {
+        alert(res.message) 
+        const newList = listEmployee
+        newList.splice(i,1)
+        setListEmployee(newList);
+      }
+      else{
+        alert(res.message);
+      }
+    }
+  }
 
   return (
     <section>
