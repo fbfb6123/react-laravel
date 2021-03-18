@@ -47,25 +47,29 @@ function List(){
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">City</th>
             <th scope="col">Address</th>
             <th scope="col">Phone</th>
+            <th scope="col">Rol</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
 
         {
-          listEmployee.map((item)=>{
+          listEmployee.map((item,i)=>{
             return(
               <tr key={item.id}>
                 <th scope="row">{item.id}</th>
                 <td>{item.name_lastname}</td>
                 <td>{item.email}</td>
+                <td>{item.city}</td>
                 <td>{item.direction}</td>
                 <td>{item.phone}</td>
+                <td>{item.role.rol_name}</td>
                 <td>
-                <Link to={"/employee/edit/"+item.id} className="btn btn-light"> Edit </Link>
-                <a href="#" className="btn btn-danger" onClick={()=>onClickDelete(i,item.id)}> Delete </a>
+                  <Link to={"/employee/edit/"+item.id} className="btn btn-light"> Edit </Link>
+                  <a href="#" className="btn btn-danger" onClick={()=>onClickDelete(i,item.id)}> Delete </a>
                 </td>
               </tr>
             )
