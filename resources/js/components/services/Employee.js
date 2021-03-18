@@ -44,4 +44,12 @@ employee.update = async (data) => {
   return res;
 }
 
+employee.delete = async (id) => {
+  const urlDelete = baseUrl+"/delete/"+id
+  const res = await axios.delete(urlDelete)
+  .then(response=> { return response.data })
+  .catch(error =>{ return error })
+  return res;
+}
+
 export default employee
