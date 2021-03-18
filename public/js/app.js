@@ -2931,12 +2931,15 @@ function List() {
               children: item.phone
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                className: "btn btn-outline-info",
                 to: "/employee/edit/" + item.id,
-                children: "Edit"
+                className: "btn btn-light",
+                children: " Edit "
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 href: "#",
                 className: "btn btn-danger",
+                onClick: function onClick() {
+                  return onClickDelete(i, item.id);
+                },
                 children: " Delete "
               })]
             })]
@@ -3120,6 +3123,38 @@ employee.update = /*#__PURE__*/function () {
 
   return function (_x3) {
     return _ref5.apply(this, arguments);
+  };
+}();
+
+employee["delete"] = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id) {
+    var urlDelete, res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            urlDelete = baseUrl + "/delete/" + id;
+            _context6.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete(urlDelete).then(function (response) {
+              return response.data;
+            })["catch"](function (error) {
+              return error;
+            });
+
+          case 3:
+            res = _context6.sent;
+            return _context6.abrupt("return", res);
+
+          case 5:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function (_x4) {
+    return _ref6.apply(this, arguments);
   };
 }();
 

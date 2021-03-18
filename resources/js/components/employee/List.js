@@ -45,8 +45,8 @@ function List(){
                 <td>{item.direction}</td>
                 <td>{item.phone}</td>
                 <td>
-                  <Link className="btn btn-outline-info" to={"/employee/edit/"+item.id}>Edit</Link>
-                  <a href="#" className="btn btn-danger"> Delete </a>
+                <Link to={"/employee/edit/"+item.id} className="btn btn-light"> Edit </Link>
+                <a href="#" className="btn btn-danger" onClick={()=>onClickDelete(i,item.id)}> Delete </a>
                 </td>
               </tr>
             )
