@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:8000/api/employee"
 import axios from "axios";
 const employee = {};
 
-employee.list = async () => {
+employee.listRole = async () => {
   const urlList = baseUrl+"/role"
   const res = await axios.get(urlList)
   .then(response=> {return response.data })

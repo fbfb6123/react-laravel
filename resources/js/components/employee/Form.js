@@ -42,7 +42,7 @@ function Form(){
         <div className="col-md-6 mb-3">
           <label htmlFor="firstName">Name employee </label>
           <input type="text" className="form-control" placeholder="Name"
-            onChange={(event)=>setName(event.target.value)} />
+            onChange={(event)=>setName(event.target.defaultValue)} />
         </div>
       </div>
 
@@ -50,18 +50,18 @@ function Form(){
         <div className="col-md-6 mb-3">
           <label htmlFor="email">Email</label>
           <input type="email" className="form-control" placeholder="you@example.com"
-            onChange={(event)=>setEmail(event.target.value)} />
+            onChange={(event)=>setEmail(event.target.defaultValue)} />
         </div>
       </div>
 
       <div className="row">
         <div className="col-md-6 mb-3">
           <label htmlFor="phone">City </label>
-          <select id="inputState" className="form-control" onChange={(event)=> setCity(event.target.value)}>
+          <select id="inputState" className="form-control" onChange={(event)=> setCity(event.target.defaultValue)}>
              <option selected>Choose...</option>
-             <option value="London">London</option>
-             <option value="Madrid">Madrid</option>
-             <option value="New York">New York</option>
+             <option defaultValue="London">London</option>
+             <option defaultValue="Madrid">Madrid</option>
+             <option defaultValue="New York">New York</option>
           </select>
         </div>
       </div>
@@ -70,7 +70,7 @@ function Form(){
         <div className="col-md-6 mb-3">
           <label htmlFor="address">Address</label>
           <input type="text" className="form-control" placeholder="1234 Main St"
-            onChange={(event)=>setAddress(event.target.value)} />
+            onChange={(event)=>setAddress(event.target.defaultValue)} />
         </div>
       </div>
 
@@ -78,19 +78,19 @@ function Form(){
         <div className="col-md-6 mb-3">
           <label htmlFor="phone">Phone </label>
           <input type="text" className="form-control" placeholder="123467890"
-              onChange={(event)=>setPhone(event.target.value)}  />
+              onChange={(event)=>setPhone(event.target.defaultValue)}  />
         </div>
       </div>
 
       <div className="row">
         <div className="col-md-6 mb-3">
 					<label htmlFor="phone">Rol </label>
-					<select id="inputState" className="form-control" onChange={(event)=> setRol(event.target.value)}>
+					<select id="inputState" className="form-control" onChange={(event)=> setRol(event.target.defaultValue)}>
              <option selected>Choose...</option>
              {
                listRol.map((item)=>{
                  return(
-                   <option key={item.rol_id} value={item.rol_id}>{item.rol_name}</option>
+                   <option key={item.rol_id} defaultValue={item.rol_id}>{item.rol_name}</option>
                  )
                })
              }

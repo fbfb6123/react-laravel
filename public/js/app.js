@@ -2225,7 +2225,7 @@ function Edit(props) {
       id = _useState2[0],
       setId = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("ppp"),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       name = _useState4[0],
       setName = _useState4[1];
@@ -2341,6 +2341,48 @@ function Edit(props) {
 
     fetchDataRol();
   }, []);
+
+  var updateEmployee = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var data, res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              data = {
+                id: id,
+                name: name,
+                email: email,
+                city: city,
+                address: address,
+                phone: phone,
+                rol: rol
+              };
+              _context3.next = 3;
+              return _services_Employee__WEBPACK_IMPORTED_MODULE_2__.default.update(data);
+
+            case 3:
+              res = _context3.sent;
+
+              if (res.success) {
+                alert(res.message);
+              } else {
+                alert(res.message);
+              }
+
+            case 5:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function updateEmployee() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
       children: "Edit "
@@ -2349,12 +2391,15 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "col-md-6 mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          "for": "firstName",
+          htmlFor: "firstName",
           children: "Name"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           className: "form-control",
-          value: name
+          defaultValue: name,
+          onChange: function onChange(event) {
+            return setName(event.target.defaultValue);
+          }
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2362,27 +2407,16 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "col-md-6 mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          "for": "email",
+          htmlFor: "email",
           children: "Email"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "email",
           className: "form-control",
           placeholder: "you@example.com",
-          value: email
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "col-md-6 mb-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          "for": "address",
-          children: "Address"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          className: "form-control",
-          placeholder: "1234 Main St",
-          value: address
+          defaultValue: email,
+          onChange: function onChange(event) {
+            return setEmail(event.target.defaultValue);
+          }
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2390,23 +2424,26 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "col-md-6 mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-          "for": "phone",
+          htmlFor: "phone",
           children: ["City ", city]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
           id: "inputState",
           className: "form-control",
-          value: city,
+          defaultValue: city,
+          onChange: function onChange(event) {
+            return setCity(event.target.defaultValue);
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
             selected: true,
             children: "Choose..."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "New York",
+            defaultValue: "New York",
             children: "New York"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "London",
+            defaultValue: "London",
             children: "London"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "Madrid",
+            defaultValue: "Madrid",
             children: "Madrid"
           })]
         })]
@@ -2416,13 +2453,16 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "col-md-6 mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          "for": "address",
-          children: "Phone "
+          htmlFor: "address",
+          children: "Address"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           className: "form-control",
-          placeholder: "123467890",
-          value: phone
+          placeholder: "1234 Main St",
+          defaultValue: address,
+          onChange: function onChange(event) {
+            return setAddress(event.target.defaultValue);
+          }
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2430,17 +2470,37 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "col-md-6 mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          "for": "phone",
+          htmlFor: "address",
+          children: "Phone "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          className: "form-control",
+          placeholder: "123467890",
+          defaultValue: phone,
+          onChange: function onChange(event) {
+            return setPhone(event.target.defaultValue);
+          }
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "row",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "col-md-6 mb-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          htmlFor: "phone",
           children: "Rol"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
           id: "inputState",
           className: "form-control",
-          value: rol,
+          defaultValue: rol,
+          onChange: function onChange(event) {
+            return setRol(event.target.defaultValue);
+          },
           children: listRol.map(function (itemselect) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              value: itemselect.rol_id,
+              defaultValue: itemselect.rol_id,
               children: itemselect.rol_name
-            });
+            }, itemselect.rol_id);
           })
         })]
       })
@@ -2449,6 +2509,9 @@ function Edit(props) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "col-md-6 mb-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          onClick: function onClick() {
+            return updateEmployee();
+          },
           className: "btn btn-primary btn-block",
           type: "submit",
           children: "Save"
@@ -2622,7 +2685,7 @@ function Form() {
           className: "form-control",
           placeholder: "Name",
           onChange: function onChange(event) {
-            return setName(event.target.value);
+            return setName(event.target.defaultValue);
           }
         })]
       })
@@ -2638,7 +2701,7 @@ function Form() {
           className: "form-control",
           placeholder: "you@example.com",
           onChange: function onChange(event) {
-            return setEmail(event.target.value);
+            return setEmail(event.target.defaultValue);
           }
         })]
       })
@@ -2653,19 +2716,19 @@ function Form() {
           id: "inputState",
           className: "form-control",
           onChange: function onChange(event) {
-            return setCity(event.target.value);
+            return setCity(event.target.defaultValue);
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
             selected: true,
             children: "Choose..."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "London",
+            defaultValue: "London",
             children: "London"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "Madrid",
+            defaultValue: "Madrid",
             children: "Madrid"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-            value: "New York",
+            defaultValue: "New York",
             children: "New York"
           })]
         })]
@@ -2682,7 +2745,7 @@ function Form() {
           className: "form-control",
           placeholder: "1234 Main St",
           onChange: function onChange(event) {
-            return setAddress(event.target.value);
+            return setAddress(event.target.defaultValue);
           }
         })]
       })
@@ -2698,7 +2761,7 @@ function Form() {
           className: "form-control",
           placeholder: "123467890",
           onChange: function onChange(event) {
-            return setPhone(event.target.value);
+            return setPhone(event.target.defaultValue);
           }
         })]
       })
@@ -2713,14 +2776,14 @@ function Form() {
           id: "inputState",
           className: "form-control",
           onChange: function onChange(event) {
-            return setRol(event.target.value);
+            return setRol(event.target.defaultValue);
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
             selected: true,
             children: "Choose..."
           }), listRol.map(function (item) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              value: item.rol_id,
+              defaultValue: item.rol_id,
               children: item.rol_name
             }, item.rol_id);
           })]
@@ -2968,7 +3031,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var baseUrl = "http://localhost:8000/api/employee";
 
 var employee = {};
-employee.list = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+employee.listRole = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
   var urlList, res;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
     while (1) {
